@@ -36,14 +36,6 @@ When powered and running, the servo will sweep from 0° to 180° and back. Obsta
 
 ---
 
-## 📸 Prototype Preview
-
-<img src="docs/radar_demo.gif" alt="Radar System Demo" width="500"/>
-
-*Image or GIF of the running system can be added here.*
-
----
-
 ## ✅ TODO
 
 - [ ] Add smoothing/filtering to distance readings
