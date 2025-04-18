@@ -9,13 +9,14 @@ void drawBackgroundAndUI() {
   
   // 3) separator linija
   stroke(0, 255, 0);
-  strokeWeight(1);
+  strokeWeight(2);
   line(0, height - 70, width, height - 70);
   
   // 4) tekstualne etikete
   String s1 = "Object:";
   String s2 = "Angle:";
   String s3 = "Distance:";
+  String name = "radov1c";
   
   // siva boja i veći font
   fill(150);
@@ -31,6 +32,27 @@ void drawBackgroundAndUI() {
   text(s1, startX, textY);
   text(s2, startX + step * 1.4, textY);
   text(s3, startX + 2.5 * step, textY);
+  
+  textSize(20);
+  textAlign(LEFT);
+  float padding = 10;
+  
+  // Izračunavanje širine teksta da bi okvir bio tačne veličine
+  float textW = textWidth(name);
+  float textH = textAscent() + textDescent();
+  
+  // Pozicija okvira
+  float boxX = 20;
+  float boxY = textY;
+  
+  // Boja pozadine boxa
+  fill(20, 40, 90);  // tamno plava
+  noStroke();
+  rect(boxX - padding, boxY - padding, textW + 2 * padding, textH + 2 * padding, 10); // zaobljeni ivice
+  
+  // Boja teksta
+  fill(135, 206, 250);  // svetlo plava
+  text(name, boxX, boxY + textH / 2);
   
   // 5) reset stila za crtanje radara
   noFill();
