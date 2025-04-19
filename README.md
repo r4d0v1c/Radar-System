@@ -20,7 +20,7 @@ This project simulates a simple 2D radar system. The HC-SR04 ultrasonic sensor i
 - USB cable for Arduino-PC communication
 
 ### 💻 Software Tools
-- Arduino IDE (for writing and uploading firmware)
+- PlatformIO in Visual Studio Code (for writing and uploading firmware)
 - Processing (for visualizing distance measurements)
 - Serial communication (between Arduino and PC)
 
