@@ -1,11 +1,15 @@
 import processing.serial.*;
-
+import java.awt.event.KeyEvent; // imports library for reading the data from the serial port
+import java.io.IOException;
 
 int iAngle; //prima vrednost ugla
 int distance;
+int index1 = 0;
+int index2 = 0;
 float pixsDistance;
 String angle = "";
 String object = "";
+String data = "";
 String noObject;
 
 Serial myPort;
@@ -13,7 +17,8 @@ Serial myPort;
 void setup() {
   fullScreen(P2D);
   smooth();
-  myPort = new Serial(this, "ttyACM0", 9600);
+  myPort = new Serial(this, "/dev/ttyACM0", 9600);
+  myPort.bufferUntil('.'); // reads the data from the serial port up to the character '.'. So actually it reads this: angle,distance.
 }
 
 void draw() {
@@ -76,7 +81,19 @@ void drawLine() {
   // draws the line according to the angle
   popMatrix();
 }
+void serialEvent(Serial myPort) { 
+  // starts reading data from the Serial Port
+  data = myPort.readStringUntil('.');
+  data = data.substring(0, data.length() - 1);
 
+  index1 = data.indexOf(","); // find the character ',' and puts it into the variable "index1"
+  angle = data.substring(0, index1); // read the data from position "0" to position of the variable index1 or that's the value of the angle the Arduino Board sent into the Serial Port
+  distance = Integer.parseInt(data.substring(index1 + 1)); // read the data from position "index1" to the end of the data which is the value of the distance
+  
+  // converts the String variables into Integer
+  iAngle = int(angle);
+  distance = int(distance);
+}
 void drawText(){
    pushMatrix();
    
