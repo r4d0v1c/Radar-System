@@ -16,14 +16,12 @@ int  index2=0;
 PFont orcFont;
 
 void setup() {
-  
- size (1366, 768); // ***CHANGE  THIS TO YOUR SCREEN RESOLUTION***
+ fullScreen(P2D); // ***CHANGE  THIS TO YOUR SCREEN RESOLUTION***
  smooth();
  myPort = new Serial(this,"/dev/ttyACM0",  9600); // starts the serial communication
  myPort.bufferUntil('.'); // reads  the data from the serial port up to the character '.'. So actually it reads this:  angle,distance.
 }
 void draw() {
-  
   fill(98,245,31);
   // simulating  motion blur and slow fade of the moving line
   noStroke();
@@ -95,10 +93,10 @@ void drawLine() {
 void drawText()  { // draws the texts on the screen
   pushMatrix();
   if(iDistance>40)  {
-  noObject = "Out of Range";
+    noObject = "Out of Range";
   }
   else {
-  noObject = "In Range";
+    noObject = "In Range";
   }
   fill(0,0,0);
   noStroke();
@@ -111,11 +109,11 @@ void drawText()  { // draws the texts on the screen
   text("30cm",width-width*0.177,height-height*0.0833);
   text("40cm",width-width*0.0729,height-height*0.0833);
   textSize(40);
-  text("Hashan Sudeera", width-width*0.875, height-height*0.0277);
+  text("Object:  ", width-width*0.875, height-height*0.0277);
   text("Angle:  " + iAngle +" °", width-width*0.48, height-height*0.0277);
   text("Distance:  ", width-width*0.26, height-height*0.0277);
   if(iDistance<40) {
-  text("        " + iDistance +" cm", width-width*0.225, height-height*0.0277);
+    text("        " + iDistance +" cm", width-width*0.18, height-height*0.0277);
   }
   textSize(25);
   fill(98,245,60);
@@ -123,18 +121,22 @@ void drawText()  { // draws the texts on the screen
   rotate(-radians(-60));
   text("30°",0,0);
   resetMatrix();
+  
   translate((width-width*0.503)+width/2*cos(radians(60)),(height-height*0.0888)-width/2*sin(radians(60)));
   rotate(-radians(-30));
   text("60°",0,0);
   resetMatrix();
+  
   translate((width-width*0.507)+width/2*cos(radians(90)),(height-height*0.0833)-width/2*sin(radians(90)));
   rotate(radians(0));
   text("90°",0,0);
   resetMatrix();
+  
   translate(width-width*0.513+width/2*cos(radians(120)),(height-height*0.07129)-width/2*sin(radians(120)));
   rotate(radians(-30));
   text("120°",0,0);
   resetMatrix();
+  
   translate((width-width*0.5104)+width/2*cos(radians(150)),(height-height*0.0574)-width/2*sin(radians(150)));
   rotate(radians(-60));
   text("150°",0,0);
