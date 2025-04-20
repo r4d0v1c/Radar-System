@@ -4,26 +4,24 @@
 Servo myServo;
 int distance = 0;
 
+void sweepServo(int start, int stop, int step){
+  for (int pos = start; pos != stop; pos += step) { // Sweep from 180 to 0 degrees
+    myServo.write(pos); // Set the servo position
+    delay(15); // Wait for the servo to reach the position
+    Serial.print(pos);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.print(".");
+  }
+}
+
 void setup() {
   Serial.begin(9600);
   myServo.attach(3); // Attach the servo on pin 3
 }
 
 void loop() {
-  for (int pos = 0; pos <= 180; pos += 1) { // Sweep from 0 to 180 degrees
-    myServo.write(pos); // Set the servo position
-    delay(15); // Wait for the servo to reach the position
-    Serial.print(pos);
-    Serial.print(",");
-    Serial.print(distance);
-    Serial.print(".");
-  }
-  for (int pos = 180; pos >= 0; pos -= 1) { // Sweep from 180 to 0 degrees
-    myServo.write(pos); // Set the servo position
-    delay(15); // Wait for the servo to reach the position
-    Serial.print(pos);
-    Serial.print(",");
-    Serial.print(distance);
-    Serial.print(".");
-  }
+  sweepServo(0, 180, 1);
+  sweepServo(180, 0, -1);
 }
+
