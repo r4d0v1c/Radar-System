@@ -2,6 +2,7 @@
 #include "Servo.h"
 
 Servo myServo;
+int distance = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -13,10 +14,16 @@ void loop() {
     myServo.write(pos); // Set the servo position
     delay(15); // Wait for the servo to reach the position
     Serial.print(pos);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.print(".");
   }
   for (int pos = 180; pos >= 0; pos -= 1) { // Sweep from 180 to 0 degrees
     myServo.write(pos); // Set the servo position
     delay(15); // Wait for the servo to reach the position
     Serial.print(pos);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.print(".");
   }
 }
