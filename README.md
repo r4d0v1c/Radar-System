@@ -30,7 +30,7 @@ This project simulates a simple 2D radar system. The HC-SR04 ultrasonic sensor i
 3. Data is sent over serial to Processing.
 4. Processing plots the data in polar coordinates, simulating a radar display.
 
-## 🧪 Example Use
+##  Example Use
 
 When powered and running, the servo will sweep from 0° to 180° and back. Obstacles will appear as dots on the radar interface in Processing. You can test it by placing objects at various distances in front of the sensor.
 
