@@ -1,25 +1,25 @@
-# 🚀 Radar System
+#  Radar System
 
 An educational radar-like system built with Arduino UNO, an HC-SR04 ultrasonic sensor, and a servo motor. The system scans the surrounding environment by rotating the ultrasonic sensor and visualizes the detected objects in real-time using Processing.
 
 ---
 
-## 📌 Description
+##  Description
 
 This project simulates a simple 2D radar system. The HC-SR04 ultrasonic sensor is mounted on a servo motor, which rotates to scan a defined angular field. The measured distances are sent from the Arduino to the PC over a serial connection. A custom Processing sketch receives and visualizes the data in real-time, displaying obstacles as points on a radar-like interface.
 
 ---
 
-## ⚙️ System Architecture
+##   System Architecture
 
-### 🔧 Hardware Components
+###  Hardware Components
 - Arduino UNO
 - HC-SR04 Ultrasonic Sensor
 - SG90 Servo Motor
 - Breadboard and jumper wires
 - USB cable for Arduino-PC communication
 
-### 💻 Software Tools
+###  Software Tools
 - Arduino IDE (for writing and uploading firmware)
 - Processing (for visualizing distance measurements)
 - Serial communication (between Arduino and PC)
@@ -36,24 +36,24 @@ When powered and running, the servo will sweep from 0° to 180° and back. Obsta
 
 ---
 
-## ✅ TODO
+##  TODO
 
-- [ ] Add smoothing/filtering to distance readings
-- [ ] Expand scan to 360° using a continuous rotation servo
-- [ ] Add sound or alert for close objects
-- [ ] Log distance data to file
-- [ ] Improve UI in Processing (colors, scale, labels)
+-  Add smoothing/filtering to distance readings
+-  Expand scan to 360° using a continuous rotation servo
+-  Add sound or alert for close objects
+-  Log distance data to file
+-  Improve UI in Processing (colors, scale, labels)
 
 ---
 
-## 📬 Contact
+##  Contact
 
 Created by [Luka Radović](https://github.com/your-github-username)  
 Feel free to reach out or contribute to the project!
 
 ---
 
-## 📝 License
+##  License
 
 This project is open-source and available under the [MIT License](LICENSE).
 
